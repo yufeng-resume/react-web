@@ -111,7 +111,7 @@ const Navbar = () => {
             </StyledInternalLink>
           </Item>
           <Item $width="auto" $height="auto" $gap="5px">
-            <StyledExternalLink>
+            <StyledExternalLink href="https://github.com/yufeng-resume/react-web">
               <Image src={GitHubIcon} alt="Source Code" ratio={1} $width="42px" $height="42px"></Image>
             </StyledExternalLink>
             {isLoggedIn ? (
