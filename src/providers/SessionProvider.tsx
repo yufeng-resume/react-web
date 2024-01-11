@@ -7,6 +7,8 @@ interface Props {
 }
 
 export const SessionProvider = ({ children }: Props) => {
+  // SessionProvider adds a listener to the auth state to check
+  // if the user is logged in or not and automatically updates sessionAtom
   const { login, logout } = useSession();
 
   useEffect(() => {
