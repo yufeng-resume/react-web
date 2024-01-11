@@ -116,8 +116,8 @@ const Navbar = () => {
             </StyledExternalLink>
             {isLoggedIn ? (
               <StyledButton
-                onClick={() => {
-                  signOut(auth);
+                onClick={async () => {
+                  await signOut(auth);
                 }}
               >
                 Sign out
