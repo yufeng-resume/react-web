@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet';
 import { Image } from 'src/components/ui/Image';
 import yufengImage from 'src/assets/images/yufeng.jpeg';
 import { Title, Paragraph } from 'src/elements/Text';
+import { sessionAtom } from 'src/utils/atoms/sessionAtom';
+import { useAtom } from 'jotai';
 
 const Container = styled.div`
   flex: 1;
@@ -25,6 +27,11 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 export const Home = () => {
+  const [{ isLoggedIn }] = useAtom(sessionAtom);
+  const loggedOutMessage =
+    'Hello! This website serves as an easy way for recruiters to find the information they need from me quickly. To begin, please login on the top right corner!';
+  const loggedInMessage =
+    'I aspire to learn more about the principles of software development to one day design a huge yet scalable and maintainable system that spans across countries.';
   return (
     <Container>
       <Helmet>
@@ -32,10 +39,7 @@ export const Home = () => {
       </Helmet>
       <Title $centered> About me </Title>
       <Image $width="300px" ratio={1} src={yufengImage} alt="#" />
-      <StyledParagraph>
-        Hello! This website serves as an easy way for recruiters to find the information they need from me quickly. To
-        begin, please login on the top right corner!
-      </StyledParagraph>
+      <StyledParagraph>{isLoggedIn ? loggedInMessage : loggedOutMessage}</StyledParagraph>
     </Container>
   );
 };
